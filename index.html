@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google</title>
-    <link rel="icon" href=https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-1024.png type=image/x-icon>
-    <style>
-        body, html {
-            margin: 0; /* Remove default margins */
-            padding: 0; /* Remove default padding */
-            height: 100%; /* Make body and html take full viewport height */
-            overflow: hidden; /* Prevent scrollbars */
-        }
-
-        iframe {
-            width: 100%; /* Make iframe take full width */
-            height: 100%; /* Make iframe take full height */
-            border: none; /* Remove iframe border */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>My YouTube Music App</title>
 </head>
 <body>
+  <h1>YouTube Music Search</h1>
+  <input type="text" id="query" placeholder="Search..." />
+  <button onclick="search()">Search</button>
+  <ul id="results"></ul>
 
-    <iframe src="https://192.168.1.193/"></iframe>
-
+  <script>
+    async function search() {
+      const query = document.getElementById('query').value;
+      const res = await fetch(`https://your-backend-url.com/search?q=${encodeURIComponent(query)}`);
+      const data = await res.json();
+      const results = document.getElementById('results');
+      results.innerHTML = '';
+      data.results.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.title;
+        results.appendChild(li);
+      });
+    }
+  </script>
 </body>
 </html>
