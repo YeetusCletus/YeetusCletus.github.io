@@ -1,4 +1,4 @@
-const proxyBase = "nodejs-serverless-function-express-12usq6vcg.vercel.app/";
+const proxyBase = "nodejs-serverless-function-express-12usq6vcg.vercel.app/api/search";
 
 async function search() {
     const searchTerm = document.getElementById('searchInput').value;
@@ -23,3 +23,4 @@ function playAudio(url) {
     audioPlayer.play();
 
 }
+
